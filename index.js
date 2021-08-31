@@ -9,7 +9,7 @@
       console.log(global.__dataverseNftCrawler.opensea());
       console.log(global.__dataverseNftCrawler.superrare());
     });
-    global.postMessage("SendMsgToDataverse","*",factory);
+    global.postMessage("SendMsgToDataverse","*");
   }
 })(window, function () {
   var __dataverseNftCrawler = {
