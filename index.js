@@ -18,32 +18,20 @@
         },false);
       },
       opensea:function(){
-        if (location.href.startsWith('https://opensea.io/assets/0x')) {
-          nftInfo.contract = extractHex(location.href);
-          nftInfo.tokenId = location.href.split('?')[0].split(':')[1].split('/')[5];
-          if (nftInfo.contract.length === 0 || nftInfo.tokenId.length === 0) {
-            response.code = -1;
-            response.data = chrome.i18n.getMessage('notFoundNFT');
-          } else {
-            response.code = 0;
-            response.data = nftInfo;
-          }
-        } else if (
-          location.href.includes('https://opensea.io/assets/matic/0x') ||
-          location.href.includes('https://opensea.io/assets/klaytn/0x')
-        ) {
-          response.code = -1;
-          response.data = chrome.i18n.getMessage('notSupportChain');
-        } else {
-          response.code = -1;
-          response.data = chrome.i18n.getMessage('geNFTFromDetailPage');
-        }
+        var nftInfo = {
+          "contract":"0xd6a30176bb3bc72385d517ea9d44970a06214fdf",
+          "tokenId":"301078382356528963674261205096628993547"
+        };
+        var response = {
+          "code":0,
+          "data":nftInfo
+        };
         return response;
       },
       superrare:function(){
-        return "superrare";
+          return "superrare";
+        }
       }
-    }
   
     __dataverseNftCrawler.listen();
 
