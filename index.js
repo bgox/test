@@ -19,7 +19,7 @@
       },
       opensea:function(){
         if (location.href.startsWith('https://opensea.io/assets/0x')) {
-          nftInfo.contract = extractHex(location.href)!;
+          nftInfo.contract = extractHex(location.href);
           nftInfo.tokenId = location.href.split('?')[0].split(':')[1].split('/')[5];
           if (nftInfo.contract.length === 0 || nftInfo.tokenId.length === 0) {
             response.code = -1;
